@@ -1,0 +1,15 @@
+# action.yml
+name: 'Repomerge'
+description: 'Combines all repositories from one organization into one repository and push it somewhere'
+branding:
+  icon: 'package'
+  color: 'blue'
+author: 'Jonas Otto @ottojo'
+inputs:
+  org:
+    description: 'Name of the organization'
+    required: true
+    default: 'SoPra-Team-17'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
