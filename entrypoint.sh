@@ -6,7 +6,7 @@ DESTINATION_REPO="https://$PAT@$2"
 
 echo "git-filter-repo version: $(git filter-repo --version)"
 
-ORG_REPOS=$(curl https://api.github.com/orgs/$ORG/repos?per_page=200 | jq '.[] | .name')
+ORG_REPOS=$(curl https://api.github.com/orgs/$ORG/repos?per_page=200 | jq -r '.[] | .name')
 
 for REPO in $ORG_REPOS; do
     echo "Cloning repo $REPO"
