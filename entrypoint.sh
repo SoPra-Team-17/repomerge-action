@@ -15,12 +15,12 @@ for REPO in $ORG_REPOS; do
     echo "Filtering repo"
     git filter-repo --force --to-subdirectory-filter $REPO
     echo "Cleaning repo"
-    git clean
+    git clean -f
     cd ..
 done
 
 echo "Creating directory for combined repo"
-mkdir "comined_repo"
+mkdir "combined_repo"
 cd "combined_repo"
 
 git init
