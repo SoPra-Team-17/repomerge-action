@@ -26,6 +26,9 @@ cd "combined_repo"
 
 git init
 
+git config --global user.name "${GITHUB_ACTOR}"
+git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
 for REPO in $ORG_REPOS; do
     echo "Adding remote: $REPO"
     git remote add -f "$REPO" "../$REPO"
