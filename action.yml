@@ -10,8 +10,18 @@ inputs:
     description: 'Name of the organization'
     required: true
     default: 'SoPra-Team-17'
+  destination:
+    description: 'Destination Repo (Format: github.com/ottojo/combined-test.git, without "https://")'
+    required: true
+    default: 'github.com/ottojo/combined-test.git'
+  pat:
+    description: 'Personal Access Token (needs repo permissions)'
+    required: true
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.org }}
+    - ${{ inputs.destination }}
+    - ${{ inputs.pat }}
