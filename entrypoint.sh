@@ -5,6 +5,7 @@ PAT=$3
 DESTINATION_REPO="https://$PAT@$2"
 
 echo "git-filter-repo version: $(git filter-repo --version)"
+echo "git version: $(git --version)"
 
 ORG_REPOS=$(curl https://api.github.com/orgs/$ORG/repos?per_page=200 | jq -r '.[] | .name')
 
