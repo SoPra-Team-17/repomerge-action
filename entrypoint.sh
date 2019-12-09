@@ -3,6 +3,7 @@
 ORG=$1
 PAT=$3
 DESTINATION_REPO="https://$PAT@$2"
+DESTINATION_BRANCH=$4
 
 echo "git-filter-repo version: $(git filter-repo --version)"
 echo "git version: $(git --version)"
@@ -25,6 +26,7 @@ mkdir "combined_repo"
 cd "combined_repo"
 
 git init
+git checkout -b "$DESTINATION_BRANCH"
 
 git config --global user.name "${GITHUB_ACTOR}"
 git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
@@ -40,4 +42,4 @@ echo "Adding target remote"
 git remote add origin "$DESTINATION_REPO"
 
 echo "Pushing changes"
-git push -f -u origin master
+git push -f -u origin "$DESTINATION_BRANCH"

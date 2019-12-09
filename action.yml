@@ -18,6 +18,10 @@ inputs:
     description: 'Personal Access Token (needs repo permissions)'
     required: true
     default: ''
+  branch:
+    description: 'Name of branch in destination repository'
+    required: true
+    default: 'import'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -25,3 +29,4 @@ runs:
     - ${{ inputs.org }}
     - ${{ inputs.destination }}
     - ${{ inputs.pat }}
+    - ${{ inputs.branch }}
