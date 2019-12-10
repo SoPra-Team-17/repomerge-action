@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Fail when any command fails
+set -e
+
 ORG=$1
 PAT=$3
 DESTINATION_REPO="https://$PAT@$2"
