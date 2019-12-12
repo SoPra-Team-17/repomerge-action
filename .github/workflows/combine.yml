@@ -7,7 +7,9 @@ jobs:
   combine:
     runs-on: ubuntu-latest
     steps:
-    - name: Combine repos
+    - name: Set up Git repository
+      uses: actions/checkout@v1
+    - name: Push to GitLab
       uses: SoPra-Team-17/repomerge-action@master
       with:
         org: "SoPra-Team-17"
