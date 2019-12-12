@@ -17,6 +17,10 @@ inputs:
   branch:
     description: 'Name of branch in destination repository'
     required: true
+  srcbranch:
+    description: 'Name of source branch to push to destination repository'
+    required: true
+    default: 'master'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -24,3 +28,4 @@ runs:
     - ${{ inputs.destination }}
     - ${{ inputs.pat }}
     - ${{ inputs.branch }}
+    - ${{ inputs.srcbranch }}
