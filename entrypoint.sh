@@ -13,4 +13,4 @@ echo "Adding target remote"
 git remote add target "$DESTINATION_REPO"
 
 echo "Pushing changes"
-git push target "$DESTINATION_BRANCH"
+git push target "$(git rev-parse --abbrev-ref HEAD):$DESTINATION_BRANCH"
