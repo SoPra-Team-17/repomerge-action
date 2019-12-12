@@ -1,15 +1,11 @@
 # action.yml
 name: 'Repomerge'
-description: 'Combines all repositories from one organization into one repository and push it somewhere'
+description: 'Pushes repo to a specific branch in another repo'
 branding:
   icon: 'package'
   color: 'blue'
 author: 'Jonas Otto @ottojo'
 inputs:
-  org:
-    description: 'Name of the organization'
-    required: true
-    default: 'SoPra-Team-17'
   destination:
     description: 'Destination Repo (Format: github.com/ottojo/combined-test.git, without "https://")'
     required: true
@@ -21,12 +17,10 @@ inputs:
   branch:
     description: 'Name of branch in destination repository'
     required: true
-    default: 'import'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.org }}
     - ${{ inputs.destination }}
     - ${{ inputs.pat }}
     - ${{ inputs.branch }}
