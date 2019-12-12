@@ -9,6 +9,8 @@ DESTINATION_BRANCH=$3
 
 echo "git version: $(git --version)"
 
+git checkout master
+
 echo "Adding target remote"
 git remote add target "$DESTINATION_REPO"
 
