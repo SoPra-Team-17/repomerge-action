@@ -12,8 +12,5 @@ echo "git version: $(git --version)"
 echo "Adding target remote"
 git remote add target "$DESTINATION_REPO"
 
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-echo "Current branch is $BRANCH"
-
-echo "Pushing changes $BRANCH:$DESTINATION_BRANCH"
+echo "Pushing changes $GITHUB_REF:$DESTINATION_BRANCH"
 git push target "$BRANCH:$DESTINATION_BRANCH"
