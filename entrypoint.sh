@@ -11,11 +11,12 @@ SRC_BRANCH=$4
 echo "git version: $(git --version)"
 
 git checkout "$SRC_BRANCH"
+git fetch --unshallow
 
 echo "Adding target remote"
 git remote add target "$DESTINATION_REPO"
 
-git fetch --unshallow --all
+git fetch --all
 
 echo "Pushing changes $(git rev-parse --abbrev-ref HEAD):$DESTINATION_BRANCH"
 git push target "$(git rev-parse --abbrev-ref HEAD):$DESTINATION_BRANCH"
