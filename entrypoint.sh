@@ -11,7 +11,7 @@ SRC_BRANCH=$4
 echo "git version: $(git --version)"
 
 git checkout "$SRC_BRANCH"
-git fetch --unshallow
+git fetch --depth=1000000
 
 echo "Adding target remote"
 git remote add target "$DESTINATION_REPO"
